@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="#">
+    <title>QuiEstCe</title>
+    <meta name="description" content="this is our play" />
+    <link rel="stylesheet" href="css.css">
+    <!-- Bootstrap 4 CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+<!-- ajouter de la musique  -->
+<audio id="correct" src="music/correct.wav" preload="auto"></audio>
+<audio id="wrong" src="music/wrong.wav" preload="auto"></audio>
+<audio id="win" src="music/win.wav" preload="auto"></audio>
+
+
+
+<!-- ajouter de la musique  -->
+
+<body>
+    <div class="alert d-none" role="alert" id="turn-message"></div>
+    <header>
+        <h1 class="PageTitle">Qui est ce ?</h1>
+        <div id="texteTriche" style="font-size: 31px;margin-right: 10px;">Mode triche :
+            désactivé
+        </div>
+    </header>
+    <div class="container " style="width: 800px">
+
+        <div>
+            <div class="box">
+                <a class="button" href="#popup1">
+                    <img src="images/danger.png" style="width: 40px;">
+                </a>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="jeu">
+
+        <div class="shadow lg-10  bg-white rounded">
+            <div class="toutesPersonnages">
+
+            </div>
+
+        </div>
+
+        <div id="AffichReponse">
+            <div class="f">
+                <br>
+                <p class="text-body">Votre question est:</p>
+                <form action="">
+                    <div class="listeQuestion">
+
+                        <div class="question" id="test">
+                            <span>Question</span>
+                            <select id="question1" name="question" onclick="selection()">
+                                <option>Caractéristique</option>
+                            </select>
+
+                            <span>Reponse</span>
+                            <select id="reponse1" name="reponse">
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="question" id="ajouter">
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="boutons">
+                        <button type="button" value="Ajouter" id="ajouter1" class="btn btn-success">Ajouter</button>
+                        <button type="button" value="Enlever" id="enlever" class="btn btn-success">Enlever</button>
+
+                    </div>
+                    <div class="boutons">
+                        <button type="button" value="Estimer" id="estimer"class="btn btn-success">Estimer</button>
+                        <button type="button" value="Valider" id="valider" class="btn btn-success">valider</button>
+                        <button type="button" value="Mode Triche" id="boutonTriche"
+                            class="btn btn-danger">Triche</button>
+
+
+                        <!-- <input type="button" value="Estimer">
+                                <input type="button" value="Valider" id="valider">
+                                <input id="triche" type="button" value="Mode Triche"> -->
+                    </div>
+
+                </form>
+
+                <div id="affichageReponse" style="color: red;"></div>
+
+            </div>
+        </div>
+
+        <div id="BonReponse" style="color: red;">
+        </div>
+
+
+
+        <!-- INFO SUR LES REGLES A SIUVRE -->
+        <div id="popup1" class="overlay">
+            <div class="popup">
+
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                    <span class="UpdateInfo">
+
+                        <u>
+                            <h2>Les Regles De jeu</h2>
+                        </u>
+                        <span>
+                            1)Vous devenez le personnage choisi par l'ordinateur .<br>
+                            2)Vous posez vos questions autant de fois que vous voulez<br>
+                            ❗Mais attention❗ une fois vous choisissez le prénom le jeu se termine.<br>
+                            3) Vous avez le droit de tricher ici 😉 , Avec le button mode triche vous n'avez pas
+                            besoin
+                            de éliminer les personnages en cliquant c'est lui qui le fait<br>
+                            4)Quand vous illuminez le mauvais personnage vous perdez donc soyez prudent
+
+                        </span>
+
+                        <br>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- INFO SUR LES REGLES A SIUVRE -->
+        
+        <button type=" button" value="Mode Triche" id="triche" class="btn btn-info" onClick="document.location.reload(true)"> Nouvelle partie</button>
+        <div id="nombreTriche"></div>
+
+    </div>
+    <object data="music/background.mp3" width="0" height="0">
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+         <!--<script type="text/javascript" src="js/main.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+        <script type="text/javascript" src="client.js"></script>
+        
+
+</body>
+
+</html>
