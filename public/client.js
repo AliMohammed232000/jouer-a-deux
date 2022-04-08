@@ -136,7 +136,7 @@ socket.on('StartPlay', (ennemy)=>{
      });
 
 
-socket.on('YouWin',()=>{
+socket.on('YouWin',(winner)=>{
     console.log("im win")
     swal.fire({
         title: 'Bravo!',
@@ -149,13 +149,12 @@ socket.on('YouWin',()=>{
         cancelButtonColor: '#d33',
         confirmButtonText:'nouvelle partie',
       }).then((result) => {
-        console.log("nouvelle partie");
         if (result.isConfirmed) {
-            socket.emit('AskDeRejouer', player.SocketID);
-        }
+            console.log("winner me",winner.SocketID);
+            socket.emit('AskDeRejouer', winner.SocketID);}
         });
  });
-      socket.on('YouWin2',(player)=>{
+      socket.on('YouWin2',(winner)=>{
         console.log("im win")
         swal.fire({
             title: 'Bravo!',
@@ -168,18 +167,19 @@ socket.on('YouWin',()=>{
             cancelButtonColor: '#d33',
             confirmButtonText:'nouvelle partie',
           }).then((result) => {
-            console.log("nouvelle partie");
+            
             if (result.isConfirmed) {
+                console.log("winner me",player.SocketID);
                 socket.emit('AskDeRejouer', player.SocketID);
             }
             });
     
 
    });
-socket.on('YouLose', (player)=>{
+socket.on('YouLose', (loser)=>{
     swal.fire({
         title: 'Vous Avez Perdu!',
-        text: `${player.UserName} a trouvé la reponse avant toi!`,
+        text: `${loser.UserName} a trouvé la reponse avant toi!`,
         imageUrl: 'https://cdn130.picsart.com/298264718335201.png?to=crop&type=webp&r=-1x-1&q=95',
         imageWidth: 400,
         imageHeight: 200,
@@ -188,14 +188,14 @@ socket.on('YouLose', (player)=>{
         cancelButtonColor: '#d33',
         confirmButtonText:'nouvelle partie',
       }).then((result) => {
-        console.log("nouvelle partie");
         if (result.isConfirmed) {
+            console.log("loser me",player.SocketID);
             socket.emit('AskDeRejouer', player.SocketID);
         }
         });
 
 });
-socket.on('YouLose2', ()=>{
+socket.on('YouLose2', (loser)=>{
     swal.fire({
         title: 'Vous Avez Perdu!',
         text: "vous avez choisi la mauvaise réponse!",
@@ -207,9 +207,9 @@ socket.on('YouLose2', ()=>{
         cancelButtonColor: '#d33',
         confirmButtonText:'nouvelle partie',
       }).then((result) => {
-        console.log("nouvelle partie");
         if (result.isConfirmed) {
-            socket.emit('AskDeRejouer', player.SocketID);
+            console.log("loser me",loser.SocketID);
+            socket.emit('AskDeRejouer', loser.SocketID);
         }
         });
        
@@ -219,13 +219,14 @@ socket.on('YouLose2', ()=>{
 socket.on('ask to playAgain', (ennemy)=>{
     swal.fire({
         title: "Rejouer?",
-        text:`${ennemy.UserName} vous demande une nouvelle partie!`,
+        text:`le jouer ${ennemy.UserName} vous demande une nouvelle partie!`,
         confirmButtonText:'nouvelle partie',
+        icon:'question',
 
     }).then((result) => {
         console.log("nouvelle partie");
         if (result.isConfirmed) {
-            socket.emit('Rejouer', player.SocketID);
+            socket.emit('Rejouer', player);
         }
         });
 
@@ -235,21 +236,55 @@ socket.on('ask to playAgain', (ennemy)=>{
 
 
 socket.on('rejouer', (players)=>{
-    console.log("let's goooooooooo");
-    if(!player.Host){
+
+ players.forEach(r=>{
+     var host;
+     if(r.Host){
+         host=r;
+     }
+    if(!r.Host){
+        SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${host.UserName}</b> de jouer`)
         player.turn=false;
+        document.getElementById("valider").disabled = true;
+        document.getElementById("FinTurn").disabled = true;
+        document.getElementById("img").disabled = true;
     }
-    if(player.Host){
+    if(r.Host){
         player.turn=true;
+        document.getElementById("valider").disabled = false;
+        document.getElementById("FinTurn").disabled = false;
+        document.getElementById("img").disabled = false;
     }
     player.Win=false;
     player.lose=false;
+});
 
+});
+socket.on('waitingNewGame', (ennemy)=>{
+    console.log("waiting...");
+swal.fire({
+    title:'Waiting',
+    text:`en attendant que ${ennemy.UserName} accepte de rejouer...`,
+    icon:'info',
+    showCancelButton: false,
+    showConfirmButton: false
+
+})
+});
+socket.on('readyToPlay',()=>{
+console.log("ready to play");
+swal.fire({
+    title:'Parfait!',
+    text:'La nouvelle partie commence maibtenant',
+    icon:'success'
+
+})
 });
 
 
 
 socket.on('Personnage',(n)=>{
+    console.log("i'm new person",n);
    var personnage_choisi=n;
  console.log("client cide", personnage_choisi);
 
@@ -731,6 +766,7 @@ $(document).ready(function () {
 
        
         $("#valider").click(function () {
+            document.getElementById("valider").disabled = true; //une seule question à poser chaque tour!
         
             var tableau_questions = tableauQuestion(count_questions);
             var tableau_connecteurs = tableauConnecteur(count_questions)
@@ -781,7 +817,7 @@ $(document).ready(function () {
         $("#FinTurn").click(function () {
 
             console.log(player.SocketID);
-            socket.emit('StartPlay', player);
+            socket.emit('StartPlay', player.SocketID);
         });
 
     });

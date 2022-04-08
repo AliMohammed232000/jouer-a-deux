@@ -21,7 +21,7 @@ server.listen(PORT, function(){
 
 
   app.get('/', (req, res) => {
-    console.log("im here");
+    console.log("im get");
     res.sendFile(path.join(__dirname, '/public/index2222.html'));
 });
 
@@ -111,12 +111,12 @@ socket.on('StartPlay', (player)=>{
 
  socket.on('win',(player)=>{
    console.log("im win")
-   io.to(player.SocketID).emit('YouWin');
+   io.to(player.SocketID).emit('YouWin',player);
 
    Rooms.forEach(r=>{ //foreach room
     r.players.forEach(p=>{ //foreach player in this room
       if(p.SocketID !=player.SocketID){
-        io.to(p.SocketID).emit('YouLose', player);
+        io.to(p.SocketID).emit('YouLose',player);
       }});
   
  });
@@ -124,11 +124,11 @@ socket.on('StartPlay', (player)=>{
 
  });
  socket.on('lose',(player)=>{
-  io.to(player.SocketID).emit('YouLose2');
+  io.to(player.SocketID).emit('YouLose2',player);
   Rooms.forEach(r=>{ //foreach room
    r.players.forEach(p=>{ //foreach player in this room
      if(p.SocketID !=player.SocketID){
-       io.to(p.SocketID).emit('YouWin2', player);
+       io.to(p.SocketID).emit('YouWin2',player);
      }});
  
 });
@@ -140,6 +140,9 @@ socket.on('StartPlay', (player)=>{
   Rooms.forEach(r=>{ //foreach room
     r.players.forEach(p=>{ //foreach player in this room
       if(p.SocketID != playerid){
+        console.log("waiting",playerid);
+        io.to(playerid).emit('waitingNewGame',p);
+       
         io.to(p.SocketID).emit('ask to playAgain',playerid);
       }
     });
@@ -150,13 +153,20 @@ socket.on('StartPlay', (player)=>{
 
  socket.on('Rejouer', (playerid)=>{
 
+
   Rooms.forEach(r=>{ //foreach room
     r.players.forEach(p=>{ //foreach player in this room
       console.log(p.SocketID);
       io.to(p.SocketID).emit('croix');
-      if(p.SocketID == playerid){
+      io.to(p.SocketID).emit('readyToPlay');
         console.log("let's goooooooooo");
+        if(p.SocketID==playerid){ 
+         const NewPersonnage=personnageChoisi(data);
+        console.log("hi new",NewPersonnage);
+        io.to(r.id).emit('Personnage', NewPersonnage);
         io.to(r.id).emit('rejouer', r.players);
+       
+      
       }
     });
  });
