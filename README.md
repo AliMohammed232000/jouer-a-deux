@@ -1,2 +1,2 @@
-# Qui-est-ce-Game
+# jouer-a-deux
 deploying the game on Heroku
