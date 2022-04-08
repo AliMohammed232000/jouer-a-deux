@@ -123,6 +123,7 @@ function SetTrunMessage(classToRemove, classToAdd,html){
 }
 
 socket.on('StartPlay', (ennemy)=>{
+    console.log("my turn", player.turn);
     console.log("im all",ennemy.SocketID,player.SocketID,!ennemy.turn);
     if(ennemy.SocketID != player.SocketID && player.turn){
         console.log("im if");
@@ -760,8 +761,8 @@ $(document).ready(function () {
 
         
         $('img').click(function (image) {
-            if(player.turn){
 
+            if(player.turn){
             change(this.id, personnage_choisi["prenom"],data);
             }
             
