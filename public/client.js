@@ -833,8 +833,10 @@ $(document).ready(function () {
 
         $("#FinTurn").click(function () {
 
-            console.log(player.SocketID);
+
+            console.log("turn",player.turn);
             socket.emit('StartPlay', player.SocketID);
+            console.log("turn",player.turn);
         });
 
     });
