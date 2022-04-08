@@ -14,7 +14,6 @@ server.listen(PORT, function(){
 
 //read from json
   const fs = require('fs');
-
     let rawdata = fs.readFileSync(path.join(__dirname, '/public/js/jeu1.json'));
     let data = JSON.parse(rawdata);
     const n=personnageChoisi(data);
