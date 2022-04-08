@@ -13,11 +13,11 @@ server.listen(PORT, function(){
   });
 
 //read from json
-const fs = require('fs');
+// const fs = require('fs');
 
-  let rawdata = fs.readFileSync('/public/js/jeu1.json');
-  let data = JSON.parse(rawdata);
-  const n=personnageChoisi(data);
+//   let rawdata = fs.readFileSync('/public/js/jeu1.json');
+//   let data = JSON.parse(rawdata);
+//   const n=personnageChoisi(data);
 
 
 
