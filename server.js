@@ -1,12 +1,15 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const path = require('path');
+const http = require('http');
 const PORT = process.env.PORT || 3000;
-app.use(express.static('public'));
-const http=require('http').server(app);
-const io=require('socket.io')(http);
-http.listen(PORT, function(){
+app.use(express.static(path.join(__dirname, "public")));
+const server = http.createServer(app);
+const io=require('socket.io')(server);
+server.listen(PORT, function(){
   console.log(`lestining on ${PORT}`);
   });
+
 //read from json
 const fs = require('fs');
   let rawdata = fs.readFileSync('js/jeu1.json');
