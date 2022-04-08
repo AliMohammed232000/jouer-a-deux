@@ -121,7 +121,7 @@ socket.on('StartPlay', (ennemy)=>{
         document.getElementById("FinTurn").disabled = true;
         document.getElementById("img").disabled = true;
 
-        SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${player.UserName}</b> de jouer`)
+        SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${ennemy.UserName}</b> de jouer`)
         player.turn = false; }
     else {
         console.log("im else");
