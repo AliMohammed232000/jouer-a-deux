@@ -124,7 +124,7 @@ function SetTrunMessage(classToRemove, classToAdd,html){
 
 socket.on('StartPlay', (ennemy)=>{
     console.log("im all",ennemy.SocketID,player.SocketID,!ennemy.turn);
-    if(ennemy.SocketID !=player.SocketID && player.turn){
+    if(ennemy.SocketID ==player.SocketID && player.turn){
         console.log("im if");
         document.getElementById("valider").disabled = true;
         document.getElementById("FinTurn").disabled = true;
