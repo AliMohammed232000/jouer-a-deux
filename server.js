@@ -1,8 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3000
-const server=app.listen(port)
-const io=require('socket.io')(server)
+const PORT = process.env.PORT || 3000;
+app.use(express.static('public'));
+const http=require('http').server(app);
+const io=require('socket.io')(http);
+http.listen(PORT, function(){
+  console.log(`lestining on ${PORT}`);
+  });
 //read from json
 const fs = require('fs');
   let rawdata = fs.readFileSync('js/jeu1.json');
@@ -13,13 +17,10 @@ const fs = require('fs');
 
   app.get('/', (req, res) => {
     console.log("im here");
-    res.sendFile(path.join(__dirname, 'index2222.html'));
+    res.sendFile(path.join(__dirname, '/index2222.html'));
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-    console.log("here too");
-});
+
 
 let Rooms=[];
 

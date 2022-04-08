@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000', { transports : ['websocket'] }); //https://stackoverflow.com/questions/44628363/socket-io-access-control-allow-origin-error
+const socket = io(); //https://stackoverflow.com/questions/44628363/socket-io-access-control-allow-origin-error 'http://localhost:3000', { transports : ['websocket'] }
 
 
 const player={
