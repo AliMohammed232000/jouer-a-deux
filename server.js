@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, "public")));
 const server = http.createServer(app);
 const io=require('socket.io')(server);
+
+
 server.listen(PORT, function(){
   console.log(`lestining on ${PORT}`);
   });
