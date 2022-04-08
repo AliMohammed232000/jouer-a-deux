@@ -160,11 +160,12 @@ socket.on('StartPlay', (player)=>{
       io.to(p.SocketID).emit('croix');
       io.to(p.SocketID).emit('readyToPlay');
         console.log("let's goooooooooo");
+        console.log(p.SocketID,playerid);
         if(p.SocketID==playerid){ 
          const NewPersonnage=personnageChoisi(data);
-        console.log("hi new",NewPersonnage);
-        io.to(r.id).emit('Personnage', NewPersonnage);
-        io.to(r.id).emit('rejouer', r.players);
+         console.log("hi new",NewPersonnage);
+         io.to(r.id).emit('Personnage', NewPersonnage);
+         io.to(r.id).emit('rejouer', r.players);
        
       
       }

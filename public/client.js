@@ -24,6 +24,7 @@ const Wrapper=document.getElementsByClassName('Wrapper');
 
 
 
+
 socket.emit('getRooms'); //send a request to the server to get the avalebels rooms
 socket.on('listRooms', (Rooms)=>{
     let html="";
@@ -89,6 +90,9 @@ socket.on('start game', (players) =>{
 let ennemyName="";
 
 function startGame(players){
+
+    document.getElementById("boutonTriche").disabled = true;
+    
     
    const ennemy=players.find(r=>r.SocketID != player.SocketID); //in the table find the player with this condition
     ennemyName=ennemy.UserName;
@@ -104,6 +108,11 @@ function startGame(players){
          SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${ennemyName}</b> de jouer`);
      }
      
+     if(!player.turn){
+        document.getElementById("valider").disabled = true;
+        document.getElementById("FinTurn").disabled = true;
+        $('img').off('click');
+    }
 
 }
 function SetTrunMessage(classToRemove, classToAdd,html){
@@ -226,7 +235,7 @@ socket.on('ask to playAgain', (ennemy)=>{
     }).then((result) => {
         console.log("nouvelle partie");
         if (result.isConfirmed) {
-            socket.emit('Rejouer', player);
+            socket.emit('Rejouer', player.SocketID);
         }
         });
 
@@ -236,25 +245,37 @@ socket.on('ask to playAgain', (ennemy)=>{
 
 
 socket.on('rejouer', (players)=>{
+    console.log("im rejouer");
 
  players.forEach(r=>{
+     console.log("playesrrf",r);
      var host;
      if(r.Host){
-         host=r;
-     }
-    if(!r.Host){
+         host=r;}
+
+    if(r.SocketID==player.SocketID){ 
+
+     if(!r.Host){
+    
+   
+
+        
+
+        console.log("im not host",r.Host);
         SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${host.UserName}</b> de jouer`)
         player.turn=false;
         document.getElementById("valider").disabled = true;
         document.getElementById("FinTurn").disabled = true;
         document.getElementById("img").disabled = true;
-    }
-    if(r.Host){
+     }
+     else{
+        console.log("im host",r.Host );
         player.turn=true;
         document.getElementById("valider").disabled = false;
         document.getElementById("FinTurn").disabled = false;
         document.getElementById("img").disabled = false;
     }
+}
     player.Win=false;
     player.lose=false;
 });
@@ -282,17 +303,13 @@ swal.fire({
 });
 
 
-
+var personnage_choisi;
 socket.on('Personnage',(n)=>{
     console.log("i'm new person",n);
-   var personnage_choisi=n;
- console.log("client cide", personnage_choisi);
+    personnage_choisi=n;
+ console.log("client cide", personnage_choisi);});
+console.log("player turn", player.turn);
 
- if(!player.turn){
-    document.getElementById("valider").disabled = true;
-    document.getElementById("FinTurn").disabled = true;
-    $('img').off('click');
-}
 
 
 console.log("host",player.RoomId);
@@ -827,5 +844,5 @@ $(document).ready(function () {
 
 
 
-}); //personnage_choisi
+//}); //personnage_choisi
 /************************************************************************************************************** */
