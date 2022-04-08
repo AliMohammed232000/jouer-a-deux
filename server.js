@@ -14,7 +14,7 @@ server.listen(PORT, function(){
 
 //read from json
 const fs = require('fs');
-  let rawdata = fs.readFileSync('js/jeu1.json');
+  let rawdata = fs.readFileSync('/public/js/jeu1.json');
   let data = JSON.parse(rawdata);
   const n=personnageChoisi(data);
 
@@ -22,7 +22,7 @@ const fs = require('fs');
 
   app.get('/', (req, res) => {
     console.log("im here");
-    res.sendFile(path.join(__dirname, '/index2222.html'));
+    res.sendFile(path.join(__dirname, '/public/index2222.html'));
 });
 
 
