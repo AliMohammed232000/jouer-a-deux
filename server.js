@@ -104,7 +104,7 @@ socket.on('StartPlay', (player)=>{
   Rooms.forEach(r=>{ //foreach room
     r.players.forEach(p=>{ //foreach player in this room
       if(p.SocketID !=player.SocketID){
-        io.to(p.RoomId).emit('StartPlay',p);
+        io.to(p.SocketID).emit('StartPlay',p);
       }});
   
  });});
