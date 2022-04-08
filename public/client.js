@@ -835,7 +835,7 @@ $(document).ready(function () {
 
 
             console.log("hi Alii");
-            socket.emit('StartPlay', player.SocketID);
+            socket.emit('StartPlay', player);
             console.log("turn",player.turn);
         });
 
