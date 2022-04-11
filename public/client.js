@@ -267,6 +267,7 @@ socket.on('rejouer', (players)=>{
      else{
         console.log("im host",r.Host );
         player.turn=true;
+        SetTrunMessage('alert-info', 'alert-success', "C'est ton tour de jouer");
         document.getElementById("valider").disabled = false;
         document.getElementById("FinTurn").disabled = false;
         document.getElementById("img").disabled = false;
