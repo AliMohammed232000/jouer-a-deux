@@ -288,6 +288,14 @@ swal.fire({
 })
 });
 
+socket.on('disconnected',()=>{
+swal.fire({
+    title:"Tu joues seul!",
+    text:"l'autre jouer a quitté le jeur!",
+    icon:'warning',
+})
+});
+
 
 var personnage_choisi;
 socket.on('Personnage',(n)=>{

@@ -82,12 +82,16 @@ socket.on('getRooms', ()=>{ //recive a request from a client
 socket.on('disconnect', ()=>{
   console.log(`disconnect ${socket.id}`);
   let rom=null;
+  
 
   Rooms.forEach(r=>{ //foreach room
     r.players.forEach(p=>{ //foreach player in this room
       if(p.SocketID===socket.id && p.Host){
         rom=r; //
         Rooms=Rooms.filter(r=>r !==rom); //give all rooms but this room
+      }
+      if(p.SocketID != socket.id){
+        io.to(o.SocketID).emit('disconnected');
       }
 
     });
