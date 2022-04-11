@@ -257,14 +257,9 @@ socket.on('rejouer', (players)=>{
     if(r.SocketID==player.SocketID){ 
 
      if(!r.Host){
-    
-   
-
-        
-
+        player.turn=false;
         console.log("im not host",r.Host);
         SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${host.UserName}</b> de jouer`)
-        player.turn=false;
         document.getElementById("valider").disabled = true;
         document.getElementById("FinTurn").disabled = true;
         document.getElementById("img").disabled = true;
