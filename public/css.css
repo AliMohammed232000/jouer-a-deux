@@ -135,6 +135,12 @@ form {
   .popup .close:hover {
     color: #06D85F;
   }
+  
+  .container.mt-5{
+      position: relative;
+      top: -75px;
+
+  }  
   .popup .content {
     max-height: 30%;
     overflow: auto;
