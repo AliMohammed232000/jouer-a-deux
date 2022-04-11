@@ -90,8 +90,9 @@ socket.on('disconnect', ()=>{
         rom=r; //
         Rooms=Rooms.filter(r=>r !==rom); //give all rooms but this room
       }
-      if(p.SocketID != socket.id){
-        io.to(o.SocketID).emit('disconnected');
+      if(p.SocketID != socket.id && Rooms!=null){
+        console.log("l'm disconnected");
+        io.to(p.SocketID).emit('disconnected');
       }
 
     });
