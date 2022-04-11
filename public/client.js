@@ -266,35 +266,6 @@ socket.on('rejouer', (players)=>{
     })
 
 
- /*players.forEach(r=>{
-     console.log("playesrrf",r);
-     var host;
-     if(r.Host){
-         host=r;}
-
-    if(r.SocketID==player.SocketID){ 
-
-     if(!r.Host){
-        player.turn=false;
-        console.log("im not host",r.Host);
-        SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${host.UserName}</b> de jouer`)
-        document.getElementById("valider").disabled = true;
-        document.getElementById("FinTurn").disabled = true;
-        document.getElementById("img").disabled = true;
-     }
-     else{
-        console.log("im host",r.Host );
-        player.turn=true;
-        SetTrunMessage('alert-info', 'alert-success', "C'est ton tour de jouer");
-        document.getElementById("valider").disabled = false;
-        document.getElementById("FinTurn").disabled = false;
-        document.getElementById("img").disabled = false;
-    }
-}
-    player.Win=false;
-    player.lose=false;
-});*/
-
 });
 socket.on('waitingNewGame', (ennemy)=>{
     console.log("waiting...");
