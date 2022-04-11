@@ -718,7 +718,7 @@ $(document).ready(function () {
         for (let i = 0; i < lignes; i++) {
 
             var div = $("<div></div>");
-            var ligne = (div).attr('class', 'ligne');
+            var ligne = (div).attr('class', 'ligne'); 
 
             for (let j = i + ((colonnes - 1) * i); (j - i - ((colonnes - 1) * i)) < colonnes; j++) {
 
