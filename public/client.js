@@ -111,7 +111,7 @@ function startGame(players){
      if(!player.turn){
         document.getElementById("valider").disabled = true;
         document.getElementById("FinTurn").disabled = true;
-        $('img').off('click');
+       // $('img').off('click');
     }
 
 }
@@ -761,6 +761,7 @@ $(document).ready(function () {
 
         
         $('img').click(function (image) {
+            console.log(player.turn);
 
             if(player.turn){
             change(this.id, personnage_choisi["prenom"],data);
