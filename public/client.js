@@ -248,7 +248,25 @@ socket.on('ask to playAgain', (ennemy)=>{
 socket.on('rejouer', (players)=>{
     console.log("im rejouer");
 
- players.forEach(r=>{
+
+    player.Win=false;
+    player.lose=false;
+
+    players.forEach(r=>{
+        console.log("playesrrf",r);
+        if(!r.Host){
+           r.turn=false;
+           socket.emit('StartPlay', r);
+        
+        }
+        else{
+            r.turn=true;
+            socket.emit('StartPlay', r);
+        }
+    })
+
+
+ /*players.forEach(r=>{
      console.log("playesrrf",r);
      var host;
      if(r.Host){
@@ -275,7 +293,7 @@ socket.on('rejouer', (players)=>{
 }
     player.Win=false;
     player.lose=false;
-});
+});*/
 
 });
 socket.on('waitingNewGame', (ennemy)=>{
