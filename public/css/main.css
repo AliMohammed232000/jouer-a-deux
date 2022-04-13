@@ -15,8 +15,7 @@ height: 100%;
 
 }
 .Wrapper {
-    min-height: 100vh;
-    background-color: #ffb300;
+    min-height: 100%;
     letter-spacing: -0.5px;
 }
 .header {
