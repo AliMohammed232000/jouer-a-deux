@@ -154,19 +154,19 @@ form {
 }
 
 #turn-message{
-    width:250px;
-   max-width:250px; 
+    width:750px;
+   max-width:750px; 
    display: inline-block;
 }
 #game-card{
-    width:250px;
+    width:750px;
     max-width:250px; 
     display: inline-block;
 
 }
 #buttonsgame{
-    width:250px;
-    max-width:250px; 
+    width:750px;
+    max-width:750px; 
     display: inline-block;
 
 }
