@@ -223,13 +223,18 @@ body{
         height: 100%;
     
     }
-    #gamecarde{
-           height: 80%;
-        width:75%;
+    #turn-message{
+        height: 77%;
+        width:73%;
+       max-width:75%; 
+       max-height: 80%;
+    }
+    #game-card{
+        height: 77%;
+        width:73%;
         max-height: 80%;
         max-width:75%; 
         display: inline-block;
-    
     
     }
     .container.mt-5{
