@@ -183,11 +183,17 @@ body{
     height: 100%;
 
 }
+#turn-message{
+    height: 90%;
+    width:85%;
+   max-width:85%; 
+   max-height: 90%;
+}
 #gamecarde{
-    height: 77%;
-    width:73%;
-    max-height: 80%;
-    max-width:75%; 
+    height: 90%;
+    width:85%;
+    max-height: 90%;
+    max-width:85%; 
     display: inline-block;
 
 
@@ -208,7 +214,7 @@ body{
 }
 
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 1440px){
     body{
         background-color: rgb(212, 212, 212);
         color: white ;
