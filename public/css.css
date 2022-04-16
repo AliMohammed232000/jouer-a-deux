@@ -240,6 +240,17 @@ form {
     }
 }
 
+@media screen and (max-width: 851px) {
+    body {
+        background-color: white;
+        color: white;
+        width: 230%;
+        height: 100%;
+
+    }
+}
+
+
 #turn-message {
     height: 100%;
     width: 100%;
