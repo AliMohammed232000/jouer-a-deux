@@ -183,6 +183,14 @@ form {
     font-size: 15px;
 
 }
+#waiting-area,#rooms-card{
+    margin-right: 49%;
+       margin-left: -20%;
+   }
+   #user-card{
+       margin-right: 49%;
+       margin-left: -20%;
+   }
 
 @media screen and (max-width: 420px) {
     body {
