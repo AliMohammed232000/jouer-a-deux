@@ -6,7 +6,7 @@ nous avons mit le jeu online dans le cloud de Heroku, pour que le jeu soit dispo
 donc il y a deux possibilité pour tester le jeu
 1) tester le jeu directement online, 
     Lien du jeu hebérgé dans le cloud heroku: https://jouer-a-deux.herokuapp.com/
-2)tester le jeu en localhost
+2)tester le jeu en localhost 
    a) afin de tester le jeu en localhost, vous devez téléchager node.js(si ce n'est pas encore sur votre pc)
        https://nodejs.org/en/ (windows)
        nvm install 17.6.0 (buuntu)
@@ -20,3 +20,5 @@ donc il y a deux possibilité pour tester le jeu
    c) dès que vous avez téléchargé node.js et les sweetalerts2, localisez vous dans le répertoire du jeu et tapez: node server
    d) vous allez remarquer dans le terminale que le serveur écoute le port (lestning on) 3000, donc tout marche bien
    e) ouverez un navigateur et tapez http://127.0.0.1:3000/ (windows), http://localhost:3000/ (linux)
+
+   lien githup du projet: https://github.com/AliMohammed232000/jouer-a-deux.git
