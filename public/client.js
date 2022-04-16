@@ -282,7 +282,7 @@ socket.on('readyToPlay',()=>{
 console.log("ready to play");
 swal.fire({
     title:'Parfait!',
-    text:'La nouvelle partie commence maibtenant',
+    text:'La nouvelle partie commence maintenant',
     icon:'success'
 
 })
@@ -291,7 +291,7 @@ swal.fire({
 socket.on('disconnected',()=>{
 swal.fire({
     title:"Tu joues seul!",
-    text:"l'autre jouer a quitté le jeur!",
+    text:"l'autre joueur a quitté le jeur!",
     icon:'warning',
 })
 });
