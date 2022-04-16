@@ -171,8 +171,8 @@ form {
     height: 77%;
     width: 73%;
     display: flex;
-    padding-left: 23%;
-    font-size: 115%;
+    padding-left: 28%;
+    font-size: 141%;
 }
 
 #game-card {
@@ -212,12 +212,14 @@ form {
 
     }
 
-   #turn-message {
-        height: 100%;
-        width: 100%;
+    #turn-message {
+        height: 77%;
+        width: 73%;
         display: flex;
-    }
 
+        padding-left: 17%;
+        font-size: 115%;
+    }
     #game-card {
         height: 100%;
         width: 100%;
