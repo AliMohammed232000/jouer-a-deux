@@ -196,10 +196,11 @@ form {
 }
 /*#rooms-card{
 
-}
-#rooms-erea{
-
 }*/
+#user-card{
+    margin-right: 49%;
+    margin-left: -20%;
+}
 
 @media screen and (max-width: 420px) {
     body {
