@@ -168,7 +168,7 @@ socket.on('YouWin',(winner)=>{
         console.log("im win")
         swal.fire({
             title: 'Bravo!',
-            text: `${player.UserName} a choisi la mauvaise réponse!`,
+            text: `${winner.UserName} a choisi la mauvaise réponse!`,
             imageUrl: 'https://as2.ftcdn.net/v2/jpg/03/08/90/97/1000_F_308909732_S3sJyD6r37bwpgGIfaNre2TpLtKpK57c.jpg',
             imageWidth: 400,
             imageHeight: 200,
