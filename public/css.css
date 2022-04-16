@@ -11,10 +11,6 @@ body {
     height: 100%;
 
 }
-main{
-    padding-left: 30%;
-
-}
 
 
 * {
@@ -172,6 +168,7 @@ form {
     height: 77%;
     width: 73%;
     display: flex;
+    padding-left: 30%;
 }
 
 #game-card {
