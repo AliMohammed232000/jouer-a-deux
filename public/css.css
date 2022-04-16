@@ -167,6 +167,7 @@ form {
 #turn-message {
     height: 77%;
     width: 73%;
+    display: flex;
 }
 
 #game-card {
@@ -255,6 +256,7 @@ form {
 #turn-message {
     height: 100%;
     width: 100%;
+    display: flex;
 
 }
 
