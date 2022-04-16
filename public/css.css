@@ -181,9 +181,9 @@ form {
 #FinTurn,
 #ajouter1,
 #enlever {
-    max-width:10%; /*77.73px;*/
-    max-height: 2%; /*38px;*/
-    font-size: 1%;
+    max-width:100%; /*77.73px;*/
+    max-height: 100%; /*38px;*/
+    font-size:100%; /*15px;*/
     
 
 }
