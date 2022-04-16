@@ -1,3 +1,5 @@
+//const { default: swal } = require("sweetalert");
+
 const socket = io(); //https://stackoverflow.com/questions/44628363/socket-io-access-control-allow-origin-error 'http://localhost:3000', { transports : ['websocket'] }
 
 
@@ -82,6 +84,18 @@ const joinroom=function(){
 }
 
 socket.on('start game', (players) =>{
+    swal.fire({
+      title:'régles du jue:',
+        html:'1)chque joueur joues à a son tour, et celui qui a crée le salon va commencer le premier<br />'+
+        '2)chaque joueur a le droit poser une seule question, puis il élimine certiens personnages grâce à la répose quil a eu<br />'+
+        '3)le joueur clique le button "FinTurn" pour donner le tour au autre joueur.<br />'+
+        '4) le 2ème joueur va faire la même chose dans son tour.<br />'+
+        '5) si un joueur élimine le personage cherché il perd, et lautre joueur gagne.<br />'+
+        '6) si un joueur trouve le personage il doit choisir son prénom dans les questions, si le personage quil a choisit été la personage cherché le joueur gagne, sinon il perd<br />'+
+        '7)quand le partie se termine, chaque joueur à le droit de demander une nouvelle partie, lautre joueur à le droit daccepter ou ignorer la demande.<br />'+
+       ' 8) pour chaque partie, le serveur choisit un nouveau personage, et cest le même personage pour les deux joueur.<br />',
+    
+    })
     console.log("hi22 Ali");
     startGame(players);
 
@@ -123,6 +137,9 @@ function SetTrunMessage(classToRemove, classToAdd,html){
 }
 
 socket.on('StartPlay', (ennemy)=>{
+
+
+
     console.log("my turn", player.turn);
     console.log("im all",ennemy.SocketID,player.SocketID,!ennemy.turn);
     if(ennemy.SocketID != player.SocketID && player.turn){
@@ -282,7 +299,7 @@ socket.on('readyToPlay',()=>{
 console.log("ready to play");
 swal.fire({
     title:'Parfait!',
-    text:'La nouvelle partie commence maibtenant',
+    text:'La nouvelle partie commence maintenant',
     icon:'success'
 
 })
@@ -291,7 +308,7 @@ swal.fire({
 socket.on('disconnected',()=>{
 swal.fire({
     title:"Tu joues seul!",
-    text:"l'autre jouer a quitté le jeur!",
+    text:"l'autre joueur a quitté le jeur!",
     icon:'warning',
 })
 });

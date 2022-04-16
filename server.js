@@ -85,21 +85,28 @@ socket.on('disconnect', ()=>{
   
 
   Rooms.forEach(r=>{ //foreach room
+
+    if(r.id !=null){
+      r.players.forEach(p=>{
+      if(p.SocketID==socket.id){
+        io.to(r.id).emit('disconnected');
+      }
+            
+    });}
+
+
     r.players.forEach(p=>{ //foreach player in this room
       if(p.SocketID===socket.id && p.Host){
         rom=r; //
         Rooms=Rooms.filter(r=>r !==rom); //give all rooms but this room
       }
-      if(p.SocketID != socket.id && Rooms!=null){
-        console.log("l'm disconnected");
-        io.to(p.SocketID).emit('disconnected');
-      }
 
     });
 
-  });
+ 
 
 
+});
 });
 
 socket.on('StartPlay', (player)=>{
