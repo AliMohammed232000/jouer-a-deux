@@ -21,4 +21,4 @@ donc il y a deux possibilité pour tester le jeu
    d) vous allez remarquer dans le terminale que le serveur écoute le port (lestning on) 3000, donc tout marche bien
    e) ouverez un navigateur et tapez http://127.0.0.1:3000/ (windows), http://localhost:3000/ (linux)
 
-   lien githup du projet: https://github.com/AliMohammed232000/jouer-a-deux.git
+   lien githup de l'extension: https://github.com/AliMohammed232000/jouer-a-deux.git
