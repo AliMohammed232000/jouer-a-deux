@@ -171,7 +171,8 @@ form {
     height: 77%;
     width: 73%;
     display: flex;
-    padding-left: 30%;
+    padding-left: 27%;
+    font-size: 142%;
 }
 
 #game-card {
