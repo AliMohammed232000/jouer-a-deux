@@ -105,7 +105,7 @@ function startGame(players){
         SetTrunMessage( 'alert-info', 'alert-success', "C'est ton tour de jouer");
      }
      else{
-         SetTrunMessage('alert-success', 'alert-info', `C'est au tour de <b>${ennemyName}</b> de jouer`);
+         SetTrunMessage('alert-success', 'alert-info', `C'est au tour de  <b>${ennemyName}</b>  de jouer`);
      }
      
      if(!player.turn){
