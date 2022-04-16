@@ -57,7 +57,7 @@ body {
 .jeu {
     background-color: rgb(224 224 224);
     padding: 2% 2% 0% 2%;
-    margin: -9% 31%;
+    margin: 0% 31%;
     border-radius: 2%;
     box-shadow: -17px 8px 16px 0px rgb(0 0 0 / 20%);
 }
@@ -164,10 +164,7 @@ form {
 
 }
 
-#turn-message {
-    height: 77%;
-    width: 73%;
-}
+
 
 #game-card {
     height: 77%;
@@ -252,9 +249,12 @@ form {
 
 
 #turn-message {
-    height: 100%;
-    width: 30%;
-
+    height: 85%;
+    width: 40%;
+    text-align: center;
+    margin: -3% -1% 1% 30%;
+    position: relative;
+    top: -2%;
 }
 
 #game-card {
