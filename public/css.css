@@ -185,11 +185,11 @@ form {
 }
 #waiting-area,#rooms-card{
     margin-right: 49%;
-       margin-left: -20%;
+       margin-left: 0%;
    }
    #user-card{
        margin-right: 49%;
-       margin-left: -20%;
+       margin-left: 0%;
    }
 
 @media screen and (max-width: 420px) {
