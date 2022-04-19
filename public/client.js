@@ -86,14 +86,19 @@ const joinroom=function(){
 socket.on('start game', (players) =>{
     swal.fire({
       title:'régles du jue:',
-        html:'1)chque joueur joues à a son tour, et celui qui a crée le salon va commencer le premier<br />'+
-        '2)chaque joueur a le droit poser une seule question, puis il élimine certiens personnages grâce à la répose quil a eu<br />'+
-        '3)le joueur clique le button "FinTurn" pour donner le tour au autre joueur.<br />'+
-        '4) le 2ème joueur va faire la même chose dans son tour.<br />'+
-        '5) si un joueur élimine le personage cherché il perd, et lautre joueur gagne.<br />'+
-        '6) si un joueur trouve le personage il doit choisir son prénom dans les questions, si le personage quil a choisit été la personage cherché le joueur gagne, sinon il perd<br />'+
-        '7)quand le partie se termine, chaque joueur à le droit de demander une nouvelle partie, lautre joueur à le droit daccepter ou ignorer la demande.<br />'+
-       ' 8) pour chaque partie, le serveur choisit un nouveau personage, et cest le même personage pour les deux joueur.<br />',
+        html:'1)Les joueurs vont jouer chacun leur tour en comman¸cant par le cr´eateur'+
+        'du salon.<br />'+
+        '2)Les joueurs ne peuvent poser qu’une question par tour, ensuite ils peuvent'+
+        '´eliminer autant de personnages qu’ils veulent.<br />'+
+        '3)A la fin du tour le jouer est obliger d’indiquer qu’il a fini par l’interm´ediaire'+
+        'du bouton FinTurn afin que l’autre joueur puisse jouer..<br />'+
+        '4) Si un joueur ´elimine le personnage cherch´e il perd, et l’autre joueur gagne.<br />'+
+        '5) si un joueur trouve le personnage il doit choisir son pr´enom dans les questions,'+
+        'si le personnage qu’il a choisit ´et´e le personnage choisit le joueur gagne,'+
+        'sinon il perd..<br />'+
+        '6) Quand le parie termine, chaque joueur `a le droit de demander une nouvelle partie, l’autre joueur est libre d’accepter ou d’ignorer la demande.<br />'+
+        '7)pour chaque partie, le serveur choisit un nouveau personnage, et c’est le mˆeme personnage pour les deux joueurs..<br />',
+       
     
     })
     console.log("hi22 Ali");
