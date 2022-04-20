@@ -31,7 +31,7 @@ let Rooms=[];
 
 io.on('connection', (socket) => {
   
-  socket.on('NewPlayer', ()=>{
+  io.on('NewPlayer', ()=>{
     console.log("a new player is connected: id "+ socket.id);
   })
   //socket.broadcast.emit('Personnage',n);
